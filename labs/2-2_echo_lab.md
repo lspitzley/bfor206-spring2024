@@ -1,5 +1,5 @@
 # BFOR 206 Lab
-## Class 2-1: Simple Bash Script
+## Class 2-2: Simple Bash Script
 
 # Task Description
 Create a script that prints your name and lists the current directory.
