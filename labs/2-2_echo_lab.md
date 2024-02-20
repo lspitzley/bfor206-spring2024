@@ -1,28 +1,27 @@
-# BFOR 206 Lab
-## Class 2-2: Simple Bash Script
+# BFOR 206 Lab 2-2: Simple Bash Script
 
-# Task Description
-Create a script that prints your name and lists the current directory.
+## Task Description
+Create a script that prints your name and prints the current date.
 
 Create the script in your course Github folder and name it
 `echo_lab.sh`.
 
 When you have completed the lab, commit and push your changes to Github.
 
-# Input
+### Input
 There is no input for this script.
 
-# Output
-The script should output your **name** *and* the contents of your **home** directory.
+#### Output
+The script should output your **name** *and* the date and time.
 
-Example output:
-```
+Example case:
+```bash
+# INPUT:
+bash echo_lab.sh
+
+# OUTPUT:
 Lee Spitzley
-bfor_206_spring2024/
-Desktop/
-Documents/
-Downloads/
-...
+Tue Feb 20 17:56:24 EST 2024
 ```
 
 # Submission instructions
