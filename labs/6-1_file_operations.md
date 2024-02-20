@@ -6,11 +6,18 @@ Write a script that pings multiple addresses
 and logs the date/time and the ping
 result to a log file.
 
+Name the script `read_write_lab.sh` to allow automatic grading.
+
 ## Normal Scenario
 
 ### Input Description
 
-**File:** File containing a URL or IP address
+**File:** File containing the following lines:
+```shell
+github.com
+albany.edu
+1.2.3.4
+```
 
 ### Output Description
 
@@ -32,7 +39,11 @@ albany.edu
 [INFO] Sun Feb 18 22:50:17 EST 2024: Ping to github.com completed with status 0
 [INFO] Sun Feb 18 22:50:19 EST 2024: Ping to albany.edu completed with status 0
 [INFO] Sun Feb 18 22:50:32 EST 2024: Ping to 1.2.3.4 completed with status 2
+```
 
+## Running the script
+```bash
+bash read_write_lab.sh
 ```
 
 ## Submission instructions
@@ -46,4 +57,5 @@ When you are finished, show the instructor:
 
 1. Your code.
 2. An output **file** that looks very
-   similar to the output in the test cases.
+   similar to the output in the test cases. On some systems the 
+   exit code will be 1 for the failed ping.
