@@ -34,9 +34,8 @@ out of the box. Send the mail to your UAlbany email in this case.
 
 ```bash
 
-To install:
+# To install:
 
-```bash
 sudo apt update # update software sources
 
 sudo apt install mailutils # install mail package
@@ -100,7 +99,8 @@ Example:
 
 To recive credit for the following points, they must all be in a single script.
 
-1. Accept addresses as arguments (1pt)
+1. Accept addresses as arguments [Hint: $@ can be used to loop over
+   all arguments]. (1pt)
 2. Read addresses from a text file (1pt)
 3. Read *multiple* addresses from a text file (1pt)
 
