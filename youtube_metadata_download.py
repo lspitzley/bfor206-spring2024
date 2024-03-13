@@ -76,7 +76,9 @@ def get_video_metadata(data_dir, filename):
     video_info['length'] = data['lengthText']['simpleText']
     video_info['view_count'] = data['viewCountText']['simpleText']
 
-    print(f'get_video_info: {video_info}')
+    print(f'get_video_metadata: {video_info}')
+
+    return video_info
 
 # %% run the video download function
 data_dir = 'data'
@@ -85,5 +87,19 @@ get_channel_videos(data_dir)
 # %% find the json files
 
 json_files = find_json_files(data_dir)
+
+# %% process json files
+
+json_data = []
+for file in json_files:
+    json_data.append(get_video_metadata(data_dir, file))
+
+# %% create and save a dataframe
+
+# create a dataframe with the list of dictionaries
+metadata_df = pd.DataFrame(json_data)
+
+# save it to a CSV file
+metadata_df.to_csv(f'{data_dir}/metadata.csv', index=False)
 
 # %%
