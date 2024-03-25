@@ -80,26 +80,39 @@ def get_video_metadata(data_dir, filename):
 
     return video_info
 
+def ceo_in_title(title: str) -> bool:
+    """
+    This function will check the title of a video for the 
+    keyword "CEO" and return a True/False value if the
+    keyword is/is not included.
+    """
+    
+    if 'ceo' in title.lower():
+        return True
+    else:
+        return False
+
 # %% run the video download function
-data_dir = 'data'
-get_channel_videos(data_dir)
+if __name__ == '__main__':
+    data_dir = 'data'
+    get_channel_videos(data_dir)
 
-# %% find the json files
+    # %% find the json files
 
-json_files = find_json_files(data_dir)
+    json_files = find_json_files(data_dir)
 
-# %% process json files
+    # %% process json files
 
-json_data = []
-for file in json_files:
-    json_data.append(get_video_metadata(data_dir, file))
+    json_data = []
+    for file in json_files:
+        json_data.append(get_video_metadata(data_dir, file))
 
-# %% create and save a dataframe
+    # %% create and save a dataframe
 
-# create a dataframe with the list of dictionaries
-metadata_df = pd.DataFrame(json_data)
+    # create a dataframe with the list of dictionaries
+    metadata_df = pd.DataFrame(json_data)
 
-# save it to a CSV file
-metadata_df.to_csv(f'{data_dir}/metadata.csv', index=False)
+    # save it to a CSV file
+    metadata_df.to_csv(f'{data_dir}/metadata.csv', index=False)
 
-# %%
+    # %%
