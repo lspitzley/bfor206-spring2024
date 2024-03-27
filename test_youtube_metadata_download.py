@@ -27,6 +27,10 @@ class TestVideoDownloader(unittest.TestCase):
         has_ceo = ymd.ceo_in_title(test_title)
         self.assertFalse(has_ceo)
 
+    def test_clean_view_count(self):
+        # define test cases here
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

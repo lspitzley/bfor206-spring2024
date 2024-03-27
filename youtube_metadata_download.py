@@ -92,7 +92,14 @@ def ceo_in_title(title: str) -> bool:
     else:
         return False
 
+def clean_view_count(view_string: str) -> int:
+    pass
+
 # %% run the video download function
+"""
+For a description of what this is and how it works, see:
+https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+"""
 if __name__ == '__main__':
     data_dir = 'data'
     get_channel_videos(data_dir)
@@ -112,7 +119,13 @@ if __name__ == '__main__':
     # create a dataframe with the list of dictionaries
     metadata_df = pd.DataFrame(json_data)
 
-    # save it to a CSV file
+    # %% check for ceo in the title
+
+    # use pandas apply to send data to the ceo_in_title function
+    metadata_df['ceo_in_title'] = metadata_df['title'].apply(ceo_in_title)
+
+
+    #%% save it to a CSV file
     metadata_df.to_csv(f'{data_dir}/metadata.csv', index=False)
 
     # %%
