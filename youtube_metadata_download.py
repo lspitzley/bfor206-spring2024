@@ -95,6 +95,27 @@ def ceo_in_title(title: str) -> bool:
 def clean_view_count(view_string: str) -> int:
     pass
 
+def get_video_duration(duration_string: str) -> int:
+    """
+    This function takes a string of the video duration
+    which is normally formatted as MM:SS or HH:MM:SS
+    and return the duration as the number of seconds.
+    """
+    
+    # 01:30
+    time_parts = duration_string.split(":")
+    print(f'time parts {time_parts}')
+
+    # convert the parts to integers and multiply/add
+    if len(time_parts) == 2:
+        total_seconds = int(time_parts[0]) * 60 + int(time_parts[1])
+    else:
+        total_seconds = int(time_parts[0]) * 3600 + int(time_parts[1]) * 60 + int(time_parts[2])
+    
+    print(f'total seconds {total_seconds}')
+
+    return total_seconds
+
 # %% run the video download function
 """
 For a description of what this is and how it works, see:
@@ -124,6 +145,8 @@ if __name__ == '__main__':
     # use pandas apply to send data to the ceo_in_title function
     metadata_df['ceo_in_title'] = metadata_df['title'].apply(ceo_in_title)
 
+    # get the duration in seconds
+    metadata_df['duration_seconds'] = metadata_df['length'].apply(get_video_duration)
 
     #%% save it to a CSV file
     metadata_df.to_csv(f'{data_dir}/metadata.csv', index=False)
