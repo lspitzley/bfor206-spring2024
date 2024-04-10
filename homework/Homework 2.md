@@ -41,19 +41,19 @@ There will be three files that you will need to use for this assignment.
 3. Create a histogram of the duration of all videos. Are there any outliers? (1pt)
 4. Create a histogram of the duration of videos with "CEO" in the title. Are there any outliers? (1pt)
 
-### 3. Deeper analysis
+### 4. Deeper analysis
 
 1. What are the 100 most common words in the video titles? What do you find interesting about this list? (1pt)
 2. What are the most common words in the video descriptions? How does it compare to the video titles? (1pt)
 
-### 4. Code Management
+### 5. Code Management
 
 1. Have at least 5 commits showing progress. They must be at least an hour apart (spamming 5 commits
    in a row doesn't count!) (2pts)
 2. If two people worked on the assignment, then have at least 2 commits per person
   (1pt deduction if not).
 
-### 5. Make your results professionally pretty (2 pts)
+### 6. Make your results professionally pretty (2 pts)
 
 Use a **Jupyter Notebook** to produce your results. This tool is
 easy to use and will produce professional output. They are also
