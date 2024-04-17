@@ -9,6 +9,20 @@ metadata.
 
 #%% imports
 
+import yt_dlp
+
+
+#%% options
+
+# place to save videos
+output_folder = 'data/videos/'
+
+# yt-dlp options
+vid_opts = {
+    'format': 'bestvideo+bestaudio/best',
+	'outtmpl': f'{output_folder}%(id)s.%(ext)s',
+	'writeinfojson': True,
+}
 #%% functions
 
 def get_video_ids():
@@ -28,10 +42,17 @@ def download_video(video_id):
     This function uses the yt-dlp package to download
     the video with the given video_id.
     """
-    pass
+    vid_ydl = yt_dlp.YoutubeDL(vid_opts)
+    vid_ydl.download([video_id])
+
     
 
 #%% main
 
 if __name__ == '__main__':
-    pass
+    video_id = 'ernwEzDFGu8'
+    print(f'Downloading video {video_id}')
+    download_video(video_id)
+
+
+# %%
