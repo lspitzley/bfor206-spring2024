@@ -29,6 +29,9 @@ def detect_faces(video_id, thumbnail_folder, faces_folder):
     """
     This function uses openCV to find faces in a thumbnail
     image and saves the extracted face to the `faces` folder.
+
+    # based on https://www.datacamp.com/tutorial/face-detection-python-opencv
+    # and: https://stackoverflow.com/questions/57055694/
     """
 
     img = cv2.imread(f'{thumbnail_folder}{video_id}.jpg')
