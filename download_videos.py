@@ -11,11 +11,11 @@ metadata.
 
 import os
 import yt_dlp
+import requests
 
 
 #%% options
 
-# place to save videos
 video_folder = 'data/videos/'
 transcript_folder = 'data/transcripts/'
 
@@ -51,8 +51,22 @@ def get_transcripts(video_id):
     ts_ydl = yt_dlp.YoutubeDL(transcript_opts)
     ts_ydl.download([video_id])
 
-def get_thumbnails(video_id):
-    pass
+def get_thumbnails(video_id, thumbnail_folder):
+    """
+    This function will get a thumbnail image from 
+    YouTube and save it in the thumbnail_folder.
+    """
+
+    # make the url with the video id
+    thumbnail_url = f'https://img.youtube.com/vi/{video_id}/maxresdefault.jpg'
+
+    # download the image
+    thumbnail = requests.get(thumbnail_url).content
+
+    # save the image to the thumbnail_folder
+    with open(f'{thumbnail_folder}{video_id}.jpg', 'wb') as f:
+        f.write(thumbnail)
+
 
 def download_video(video_id):
     """
@@ -68,6 +82,14 @@ def download_video(video_id):
 
 if __name__ == '__main__':
 
+    # place to save data
+
+    thumbnail_folder = 'data/thumbnails/'
+
+    # check for the folder, if it is not there create it
+    if not os.path.exists(thumbnail_folder):
+        os.makedirs(thumbnail_folder)
+
     video_id = 'ernwEzDFGu8'
 
     # check if the video has already been downloaded
@@ -76,6 +98,12 @@ if __name__ == '__main__':
     else:
         print(f'Downloading video {video_id}')
         download_video(video_id)
+
+    # transcript download here
+
+    # get the thumbnail
+    print(f'Downloading thumbnail for video {video_id}')
+    get_thumbnails(video_id=video_id, thumbnail_folder=thumbnail_folder)
 
 
 # %%
