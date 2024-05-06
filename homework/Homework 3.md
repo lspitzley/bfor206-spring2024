@@ -41,6 +41,15 @@ and clone the repository to your local machine.
 1. Download the thumbnails for the videos
 2. Use `face_recognition` to identify faces in the thumbnails
 3. Save the faces in a `faces` directory
+4. To display the images in a notebook, you can use `IPython.display`.
+  The import is shown below (you may need to install the package first).
+  [Stack Overflow Example](https://stackoverflow.com/questions/11854847/).
+
+```python
+from IPython.display import Image, display
+```
+
+
 
 #### Analysis
 
