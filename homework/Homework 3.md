@@ -49,7 +49,9 @@ and clone the repository to your local machine.
 from IPython.display import Image, display
 ```
 
+#### Example
 
+![alt text](displayed_faces.png)
 
 #### Analysis
 
@@ -75,6 +77,9 @@ To extract faces from a video, you can adapt the code from this example:
 
 The JSON files collected from the video donwload process contain
 more information than was available from scraping the channel page.
+The process for getting this information is very similar to the process
+used to extract the video metadata in the previous homework. You will
+instead use the JSON files that are downloaded with yt-dlp.
 
 1. Read the JSON files and select the relevant columns and data points.
 2. Store them in a dataframe.
